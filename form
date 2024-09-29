@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracking Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            margin-top: 10px;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section h3 {
+            color: #4CAF50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .form-section {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Health Tracking Form</h2>
+        <form id="health-form">
+            <div class="form-section">
+                <label for="date">Date of the Month:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="day">Day of the Week:</label>
+                <select id="day" name="day" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <h3>Blood Pressure Readings</h3>
+                <label for="bp-morning">Morning (8:00 AM):</label>
+                <input type="text" id="bp-morning" name="bp-morning" placeholder="e.g., 120/80" required>
+                <label for="bp-afternoon">Afternoon (3:00 PM):</label>
+                <input type="text" id="bp-afternoon" name="bp-afternoon" placeholder="e.g., 120/80" required>
+                <label for="bp-night">Night (11:00 PM):</label>
+                <input type="text" id="bp-night" name="bp-night" placeholder="e.g., 120/80" required>
+            </div>
+            <div class="form-section">
+                <h3>Heart Rate</h3>
+                <label for="hr-morning">Morning (8:00 AM):</label>
+                <input type="number" id="hr-morning" name="hr-morning" placeholder="Heart Rate in BPM" required>
+                <label for="hr-afternoon">Afternoon (3:00 PM):</label>
+                <input type="number" id="hr-afternoon" name="hr-afternoon" placeholder="Heart Rate in BPM" required>
+                <label for="hr-night">Night (11:00 PM):</label>
+                <input type="number" id="hr-night" name="hr-night" placeholder="Heart Rate in BPM" required>
+            </div>
+            <div class="form-section">
+                <h3>SpO2 Levels</h3>
+                <label for="spo2-morning">Morning (8:00 AM):</label>
+                <input type="number" id="spo2-morning" name="spo2-morning" placeholder="SpO2 in %" required>
+                <label for="spo2-afternoon">Afternoon (3:00 PM):</label>
+                <input type="number" id="spo2-afternoon" name="spo2-afternoon" placeholder="SpO2 in %" required>
+                <label for="spo2-night">Night (11:00 PM):</label>
+                <input type="number" id="spo2-night" name="spo2-night" placeholder="SpO2 in %" required>
+            </div>
+            <div class="form-section">
+                <label for="weight">Body Weight (kg):</label>
+                <input type="number" id="weight" name="weight" placeholder="Weight in kg" required>
+            </div>
+            <div class="form-section">
+                <label for="sleep-quality">Sleep Quality:</label>
+                <select id="sleep-quality" name="sleep-quality" required>
+                    <option value="good">Good</option>
+                    <option value="better">Better</option>
+                    <option value="best">Best</option>
+                    <option value="bad">Bad</option>
+                    <option value="no-sleep">No Sleep</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <label for="weakness">Weakness Level:</label>
+                <select id="weakness" name="weakness" required>
+                    <option value="no-weakness">No Weakness</option>
+                    <option value="mild-weakness">Mild Weakness</option>
+                    <option value="very-weak">Very Weak</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('health-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = {
+                date: document.getElementById('date').value,
+                day: document.getElementById('day').value,
+                bpMorning: document.getElementById('bp-morning').value,
+                bpAfternoon: document.getElementById('bp-afternoon').value,
+                bpNight: document.getElementById('bp-night').value,
+                hrMorning: document.getElementById('hr-morning').value,
+                hrAfternoon: document.getElementById('hr-afternoon').value,
+                hrNight: document.getElementById('hr-night').value,
+                spo2Morning: document.getElementById('spo2-morning').value,
+                spo2Afternoon: document.getElementById('spo2-afternoon').value,
+                spo2Night: document.getElementById('spo2-night').value,
+                weight: document.getElementById('weight').value,
+                sleepQuality: document.getElementById('sleep-quality').value,
+                weakness: document.getElementById('weakness').value
+            };
+            console.log('Form Data:', formData);
+            alert('Form submitted successfully! Check console for details.');
+        });
+    </script>
+</body>
+</html>
+
